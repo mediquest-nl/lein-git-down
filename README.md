@@ -2,6 +2,9 @@
 
 A [Leiningen](https://leiningen.org/) plugin for resolving Clojure(Script) dependencies from a Git repository.
 
+## A message from the author
+This project is no longer maintained.  We would be happy to link to a fork here if anyone is interested in taking over as maintainer of this project, please let us know.
+
 ## Usage
 
 Add the plugin to the `:plugins` vector of your `project.clj`:
