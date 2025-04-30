@@ -1,6 +1,5 @@
 (ns lein-git-down.plugin
   (:require [clojure.string :as string]
-            [lein-git-down.impl.git :as git]
             [leiningen.core.main :as lein]))
 
 (defonce git-wagon-properties (atom {}))
@@ -63,13 +62,9 @@
 
 (defn inject-properties
   [{:keys [git-down repositories] :as project}]
-  (when-not (contains? @git-wagon-properties :monkeypatch-tools-gitlibs)
-    (let [patch? (boolean (get project :monkeypatch-tools-gitlibs true))]
-      (alter-var-root #'git/*monkeypatch-tools-gitlibs*
-        (constantly patch?))
-      (swap! git-wagon-properties
-             assoc
-             :monkeypatch-tools-gitlibs patch?)))
+  (when (or (contains? @git-wagon-properties :monkeypatch-tools-gitlibs)
+            (true? (get project :monkeypatch-tools-gitlibs)))
+    (lein/warn "':monkeypatch-tools-gitlibs' option is no longer necessary"))
   (swap! git-wagon-properties
          #(merge-with merge %
             {:protocols  (get-repo-protocols repositories)

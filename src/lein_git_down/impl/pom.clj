@@ -8,7 +8,7 @@
            (javax.xml.transform.dom DOMSource)
            (javax.xml.transform.stream StreamResult)
            (org.w3c.dom Document Element Node NodeList)
-           (org.w3c.dom.traversal DocumentTraversal NodeFilter)))
+           (org.w3c.dom.traversal NodeFilter)))
 
 (def ^:private xml-schema-ns
   "http://www.w3.org/2001/XMLSchema-instance")

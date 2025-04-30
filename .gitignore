@@ -12,3 +12,5 @@ pom.xml.asc
 **/*.iml
 /.idea
 /test-project/target
+.lsp
+.clj-kondo/.cache
